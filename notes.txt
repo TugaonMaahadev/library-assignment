@@ -1,0 +1,126 @@
+Steps to call API's
+
+1.git clone https://github.com/TugaonMaahadev/library-assignment.git
+2.cd library-assignment
+3.npm i
+4.nodemon server.js or node server.js
+
+Make use of below CURL commands to call api in POSTMAN.
+
+
+CURL Commands
+
+1.Register Api
+
+curl --location --request POST 'http://localhost:8080/register' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name":"Mahedev",
+    "email":"maha@gmail.com",
+    "phone":"9035994567",
+    "password":"Maha@123"
+   
+}'
+
+
+2.Login api
+
+curl --location --request POST 'http://localhost:8080/login' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email":"maha@gmail.com",
+    "password":"Maha@123"
+}'
+
+3.Create user
+
+curl --location --request POST 'http://localhost:8080/createUser' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name":"Vaishnavi",
+    "email":"vaishnavi@gmail.com",
+    "phone":"2515248574",
+    "password":"Vish@123",
+    "loggedInUser":"user"
+}'
+
+4.Create Book
+
+
+curl --location --request POST 'http://localhost:8080/createBook' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "bookName":"India Positive",
+    "author":"12548584"
+}'
+
+5.Get Books based on user
+
+
+curl --location --request POST 'http://localhost:8080/getBooks' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "role":"admin",
+    "email":"maha@gmail.com"
+}'
+
+6.Assign books to user
+
+
+curl --location --request POST 'http://localhost:8080/assignBooks' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id":"609388f88780102afc8e4b09",
+    "bookName":"India Positive",
+    "user":"Vaishnavi",
+    "userEmail":"vaishnavi@gmail.com"
+}'
+
+
+7.Update book only admin can update 
+
+
+curl --location --request POST 'http://localhost:8080/updateBook' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "id":"609388f88780102afc8e4b09",
+    "bookName":"India Positive",
+    "author":"4525158",
+    "status":"booked",
+    "user":"Vaishnavi",
+    "email":"vaishnavi@gmail.com",
+    "role":"admin"
+}'
+
+8.Delete Book only admin can delete
+
+
+curl --location --request POST 'http://localhost:8080/deleteBook' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+     "id":"609388d58780102afc8e4b07",
+     "role":"admin"
+}'
+
+9.Update user only admin can update 
+
+
+curl --location --request POST 'http://localhost:8080/updateUser' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "name":"Mahadev",
+    "phone":"9741174610",
+    "email":"maha@gmail.com",
+    "role":"user"
+}'
+
+
+10.Delete user only admin can delete
+
+
+curl --location --request POST 'http://localhost:8080/deleteUser' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "id":"6092d6c23406cb2fac992863",
+    "role":"admin"
+}'
